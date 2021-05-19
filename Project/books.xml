@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="booksXSD.xsd">
+    <book>
+        <title>Убить пересмешника</title>
+        <ISBN>213236565</ISBN>
+        <author>
+            <authorName>Харпер Ли</authorName>
+        </author>
+        <genre>
+            <name>роман</name>
+        </genre>
+    </book>
+    <book>
+        <title>Пойди поставь сторожа</title>
+        <ISBN>435435454</ISBN>
+        <author>
+            <authorName>Харпер Ли</authorName>
+        </author>
+        <genre>
+            <name>проза</name>
+        </genre>
+    </book>
+    <book>
+        <title>Старик и море</title>
+        <ISBN>21351654465</ISBN>
+        <author>
+            <authorName>Хэмингуэй</authorName>
+        </author>
+        <genre>
+            <name>повесть</name>
+        </genre>
+    </book>
+    <book>
+        <title>Апокалипсис в искусстве</title>
+        <ISBN>435458484</ISBN>
+        <author>
+            <authorName>Софья Багдасарова</authorName>
+        </author>
+        <genre>
+            <name>искусствоведение</name>
+        </genre>
+    </book>
+    <book>
+        <title>По ком звонит колокол</title>
+        <ISBN>35435435</ISBN>
+        <author>
+            <authorName>Хэмингуэй</authorName>
+        </author>
+        <genre>
+            <name>роман</name>
+        </genre>
+    </book>
+</books>
+
+
+
+
+
