@@ -1,5 +1,6 @@
 package readingFromXML;
 
+import objectClasses.Author;
 import objectClasses.Book;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -61,25 +62,45 @@ public class DOMParser {
             NodeList ofParameters = node.getChildNodes();
 
             for (int i = 0; i < ofParameters.getLength(); i++) {
-                if (ofParameters.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                Node authorOrGenre = ofParameters.item(i);
 
-                    Element parameter = (Element) ofParameters.item(i);
+                if (authorOrGenre.getNodeType() != Node.TEXT_NODE) {
 
-
-                    switch (parameter.getNodeName()) {
-                        case "author":
-                            book.getAuthor().setName(getTagValue("authorName", element));
+                    switch (authorOrGenre.getNodeName()) {
+                        case "authors":
+                            book.setAuthors(createAuthors(authorOrGenre));
+                            break;
                         case "genre":
                             book.getGenre().setName(getTagValue("name", element));
 
+
                     }
                 }
+
             }
 
+
         }
-
-
         return book;
+    }
+
+    public static List<Author> createAuthors(Node node) {
+        List<Author> authors = new ArrayList<>();
+
+        NodeList listOfAuthors = node.getChildNodes();
+
+        for (int i = 0; i < listOfAuthors.getLength(); i++) {
+            Node author = listOfAuthors.item(i);
+
+            Author newAuthor = new Author();
+
+            if (author.getNodeType() != Node.TEXT_NODE) {
+                Element element = (Element) author;
+                newAuthor.setName(getTagValue("authorName", element));
+                authors.add(newAuthor);
+            }
+        }
+        return authors;
     }
 
     public static String getTagValue(String tag, Element element) {

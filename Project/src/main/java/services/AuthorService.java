@@ -1,31 +1,21 @@
 package services;
 
+
 import objectClasses.Author;
-import repository.AuthorRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
+public interface AuthorService {
 
-public class AuthorService {
+    List<Author> getAuthors();
 
-    AuthorRepository authorRepository = new AuthorRepository();
+    void addAuthorToDB(String author);
 
-    public Author fetchAuthorByName(String name) {
-        try {
-            return authorRepository.getAuthorByName(name);
+    long getID(String author_name);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    void deleteAuthorFromDB(String author_name) throws SQLException;
 
-    public void addAuthorToDB(String author) {
-        authorRepository.addAuthorToBD(author);
-    }
-
-    public long getID(String author_name) {
-        return authorRepository.getAuthorId(author_name);
-    }
+    void editAuthorFromDB(String author_name, String author_newName) throws SQLException;
 
 }

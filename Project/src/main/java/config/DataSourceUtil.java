@@ -4,8 +4,8 @@ import java.sql.*;
 
 
 public class DataSourceUtil {
-    private Connection connection;
 
+    private Connection connection;
 
     public Connection getConnection() {
 
@@ -31,6 +31,4 @@ public class DataSourceUtil {
             }
         }
     }
-
-
 }

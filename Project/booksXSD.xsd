@@ -13,8 +13,16 @@
         <xsd:sequence>
             <xsd:element name="title" type="xsd:string"/>
             <xsd:element name="ISBN" type="xsd:string"/>
-            <xsd:element name="author" type="author"/>
+            <xsd:element name="authors" type="authors"/>
             <xsd:element name="genre" type="genre"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="authors">
+        <xsd:sequence>
+            <xsd:element name="firstAuthor" type="author"/>
+            <xsd:element minOccurs="0" name="secondAuthor" type="author"/>
+            <xsd:element minOccurs="0" name="thirdAuthor" type="author"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -38,6 +46,7 @@
             <xsd:enumeration value="проза"/>
             <xsd:enumeration value="искусствоведение"/>
             <xsd:enumeration value="повесть"/>
+            <xsd:enumeration value="наука"/>
         </xsd:restriction>
     </xsd:simpleType>
 

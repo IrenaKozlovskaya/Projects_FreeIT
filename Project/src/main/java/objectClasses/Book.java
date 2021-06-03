@@ -1,11 +1,14 @@
 package objectClasses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
     private long id;
     private String title;
     private String ISBN;
     private Genre genre = new Genre();
-    private Author author = new Author();
+    private List<Author> authors = new ArrayList<>();
 
 
     public String getISBN() {
@@ -16,12 +19,12 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public Author getAuthor() {
-        return author;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public long getId() {
@@ -41,16 +44,15 @@ public class Book {
     }
 
     public Genre getGenre() {
-        return this.genre;
+        return genre;
     }
 
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
-
     public String toString() {
-        return "id = " + this.id + ", название = \"" + this.title + "\", ISBN = " + this.ISBN + ", жанр = " + this.genre.getName() + ", автор = " + this.author.getName();
+        return "id = " + id + ", название = " + title + ", ISBN = " + ISBN + ", жанр = " + genre.getName() + ", автор = " + getAuthors().toString();
     }
 
 }

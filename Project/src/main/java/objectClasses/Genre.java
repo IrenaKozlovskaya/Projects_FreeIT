@@ -6,7 +6,6 @@ public class Genre {
     private long id;
     private String name;
 
-
     public long getId() {
         return id;
     }
@@ -22,4 +21,5 @@ public class Genre {
     public void setName(String name) {
         this.name = name;
     }
+
 }

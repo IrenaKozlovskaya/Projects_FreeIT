@@ -1,64 +1,20 @@
 package services;
 
-import repository.BookRepository;
-
 import objectClasses.Book;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class BookService {
+public interface BookService {
 
-    private final BookRepository bookRepository = new BookRepository();
+    List<Book> fetchAllBooks();
 
-    public List<Book> fetchAllBooks() {
+    Book fetchBookById(long id);
 
-        List<Book> booksList = new ArrayList<>();
+    void deleteBookFromDB(long id);
 
-        try {
-            List<Book> list = bookRepository.getBooks();
-            booksList.addAll(list);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    void addBookToDB(Book book);
 
-        return booksList;
-    }
-
-    public Book fetchBookById(long id) {
-        try {
-            return bookRepository.getBookByID(id);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public void deleteBookFromDB(long id) {
-        try {
-            bookRepository.deleteBookByID(id);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    void editBookFromDB(Book book);
 
 
-    public void addBookToDB(Book book) {
-        bookRepository.addBookToBD(book);
-    }
-
-    public void editBookFromDB(Book book) {
-        try {
-            bookRepository.editBookByID(book);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public long getID(String title) {
-        return bookRepository.getBookId(title);
-    }
 }

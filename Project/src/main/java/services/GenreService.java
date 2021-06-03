@@ -1,35 +1,21 @@
 package services;
 
 import objectClasses.Genre;
-import repository.GenreRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
+public interface GenreService {
 
-/**
- * Отсюда должны вызываться методы классов репозиториев
- */
+    List<Genre> fetchGenres();
 
-public class GenreService {
+    Genre fetchGenreByName(String name);
 
-    private final GenreRepository genreRepository = new GenreRepository();
+    void addGenreToDB(String genre);
 
+    void deleteGenreFromDB(String genre_name) throws SQLException;
 
-    public Genre fetchGenreByName(String name) {
-        try {
-            return genreRepository.getGenreByName(name);
+    void editGenreByName(String genre_name, String genre_newName) throws SQLException;
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    public void addGenreToDB(String genre) {
-        genreRepository.addGenreToBD(genre);
-    }
-
-    public long getID(String genre_name) {
-        return genreRepository.getGenreId(genre_name);
-    }
+    long getID(String genre_name);
 }

@@ -5,7 +5,6 @@ public class Author {
     private long id;
     private String name;
 
-
     public String getName() {
         return name;
     }
@@ -20,5 +19,10 @@ public class Author {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
